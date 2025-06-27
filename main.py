@@ -1,91 +1,9 @@
-# import streamlit as st
-# from chatbot import get_bot_response
-
-# # Title
-# st.set_page_config(page_title="AI Career Coach", layout="centered")
-# st.title("🧠 AI Career Coach")
-
-# # Step 1: Domain Selection
-# st.subheader("1️⃣ Choose Your Career Domain")
-# domain = st.selectbox("Select a tech domain:", [
-#     "Android", "Backend", "Blockchain", "Cybersecurity",
-#     "Data Analyst", "Data Science", "DevOps" ,"Frontend", "Full Stack","IOS"
-# ])
-
-# # Step 2: Show Roadmap Image
-# st.subheader("2️⃣ Recommended Roadmap")
-# img_path = f"D:/PROGRAMMING LANGUAGES/PYTHON/justANewProject/assets/{domain.lower().replace(' ', '_')}.png"
-
-# try:
-#     st.image(img_path, caption=f"(Credit: roadmap.sh 😁) {domain} Roadmap", use_container_width=True)
-# except:
-#     st.warning("Roadmap image not found. Please upload it in the assets folder.")
-
-# # Step 3: Chatbot Section
-# st.subheader("3️⃣ Ask Me Anything About This Domain 🧑‍💻")
-# if "chat_history" not in st.session_state:
-#     st.session_state.chat_history = []
-
-# user_input = st.text_input("Your question:")
-# if user_input:
-#     response = get_bot_response(domain, user_input)
-#     st.session_state.chat_history.append(("You", user_input))
-#     st.session_state.chat_history.append(("CoachBot", response))
-
-# # Chat display
-# for sender, msg in st.session_state.chat_history:
-#     st.markdown(f"**{sender}:** {msg}")
-
-
-
-
-# import streamlit as st
-# from chatbot import get_bot_response
-# from roadmap_reader import extract_text_from_image
-
-# st.set_page_config(page_title="AI Career Coach", layout="centered")
-# st.title("🧠 AI Career Coach")
-
-# st.subheader("1️⃣ Choose Your Career Domain")
-# domain = st.selectbox("Select a tech domain:", [
-#     "Android", "Android(Flutter)", "Android(React Native)","Backend", "Blockchain", "Cybersecurity",
-#     "Data Analyst", "Data Science", "DevOps" ,"Frontend", "Full Stack","IOS","MLOps"
-# ])
-
-# st.subheader("2️⃣ Recommended Roadmap")
-# img_path = f"D:/PROGRAMMING LANGUAGES/PYTHON/justANewProject/assets/{domain.lower().replace(' ', '_')}.png"
-
-# roadmap_text = ""
-# try:
-#     st.image(img_path, caption=f"(Credit: roadmap.sh 😁) {domain} Roadmap", use_container_width=True)
-#     roadmap_text = extract_text_from_image(img_path)
-#     st.success("✅ Roadmap text extracted successfully.")
-# except:
-#     st.warning("❌ Image not found or unreadable.")
-#     roadmap_text = ""
-
-# # Chatbot Section
-# st.subheader("3️⃣ Ask Me Anything About This Domain 🧑‍💻")
-# if "chat_history" not in st.session_state:
-#     st.session_state.chat_history = []
-
-# user_input = st.text_input("Your question:")
-# if user_input and roadmap_text:
-#     response = get_bot_response(domain, user_input, roadmap_text)
-#     st.session_state.chat_history.append(("You", user_input))
-#     st.session_state.chat_history.append(("CoachBot", response))
-
-# # Display chat
-# for sender, msg in st.session_state.chat_history:
-#     st.markdown(f"**{sender}:** {msg}")
-
-
 import streamlit as st
 from chatbot import get_bot_response
 from roadmap_reader import extract_text_from_image
 import re
 import fitz  # PyMuPDF
-from resume_analyzer import analyze_resume  # <-- Importing the new resume analyzer module
+from resume_analyzer import analyze_resume  
 
 st.set_page_config(page_title="🧠 AI Career Coach", layout="wide")
 
