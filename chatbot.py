@@ -3,7 +3,7 @@ from langchain.prompts import PromptTemplate
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
-    google_api_key="AIzaSyBz830luF6uDWgqht5ngyw34l-KWNxUXr0",
+    google_api_key="__YOUR__API__KEY___HERE___",
     temperature=0.4
 )
 
